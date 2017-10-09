@@ -1,0 +1,14 @@
+<litepal>
+
+    <dbname value="weatherwhere"/>
+
+    <version value="1"/>
+
+    <list>
+        <mapping class="com.example.peanut.weatherwhere.db.Province"/>
+        <mapping class="com.example.peanut.weatherwhere.db.City"/>
+        <mapping class="com.example.peanut.weatherwhere.db.County"/>
+
+
+    </list>
+</litepal>
