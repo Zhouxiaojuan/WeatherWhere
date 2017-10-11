@@ -1,6 +1,7 @@
 package com.example.peanut.weatherwhere.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.telecom.Call;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.peanut.weatherwhere.R;
+import com.example.peanut.weatherwhere.activity.WeatherActivity;
 import com.example.peanut.weatherwhere.db.City;
 import com.example.peanut.weatherwhere.db.County;
 import com.example.peanut.weatherwhere.db.Province;
@@ -81,6 +83,12 @@ public class ChooseAreaFragment extends Fragment {
                 }else if (currentLevel==LEVEL_CITY){
                     selectedCity=cityList.get(position);
                     queryCounty();
+                }else if (currentLevel==LEVEL_COUNTY){
+                    String weatherId=countyList.get(position).getWeathweId();
+                    Intent intent=new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
